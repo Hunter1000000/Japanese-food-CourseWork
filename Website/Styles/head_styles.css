@@ -1,3 +1,10 @@
 button{
-    background-color: rgb(251, 189, 34);
+    background-color: rgb(251, 95, 34);
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.logo{
+    width: 150px;
+    height: 150px;
 }
