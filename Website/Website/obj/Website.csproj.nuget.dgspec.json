@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Egor\\source\\repos\\BOTS\\Website\\Website\\Website.csproj": {}
+    "C:\\Users\\Egor\\Source\\Repos\\Japanese-food-CourseWork\\Website\\Website\\Website.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Egor\\source\\repos\\BOTS\\Website\\Website\\Website.csproj": {
+    "C:\\Users\\Egor\\Source\\Repos\\Japanese-food-CourseWork\\Website\\Website\\Website.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Egor\\source\\repos\\BOTS\\Website\\Website\\Website.csproj",
+        "projectUniqueName": "C:\\Users\\Egor\\Source\\Repos\\Japanese-food-CourseWork\\Website\\Website\\Website.csproj",
         "projectName": "Website",
-        "projectPath": "C:\\Users\\Egor\\source\\repos\\BOTS\\Website\\Website\\Website.csproj",
+        "projectPath": "C:\\Users\\Egor\\Source\\Repos\\Japanese-food-CourseWork\\Website\\Website\\Website.csproj",
         "packagesPath": "C:\\Users\\Egor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Egor\\source\\repos\\BOTS\\Website\\Website\\obj\\",
+        "outputPath": "C:\\Users\\Egor\\Source\\Repos\\Japanese-food-CourseWork\\Website\\Website\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
