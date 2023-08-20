@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Home\Images\" />
+    <Folder Include="Views\Home\Images\Products\" />
+    <Folder Include="Views\Home\Images\Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
   </ItemGroup>
 
 </Project>

@@ -50,3 +50,14 @@ C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Websit
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.pdb
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.genruntimeconfig.cache
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\ref\Website.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.csproj.CopyComplete
