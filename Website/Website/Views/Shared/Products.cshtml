@@ -1,0 +1,33 @@
+﻿@model List<ProductModel>
+@{
+	ViewData["Title"] = "Products";
+}
+
+<h2>Список товаров</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Products</th>
+            <!-- Другие поля пользователя, если есть -->
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            <table>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.Name</td>
+                        <!-- Другие поля пользователя, если есть -->
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No products available.</p>
+        }
+    </tbody>
+</table>

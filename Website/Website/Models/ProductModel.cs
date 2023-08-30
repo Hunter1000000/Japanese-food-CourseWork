@@ -9,5 +9,16 @@
         public float Price { get; set; }
         public string Type { get; set; }
         public string Photo { get; set; }
+
+        public ProductModel(int id, string name, string description, string company, float price, string type, string photo)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Description = description;
+            this.Company = company;
+            this.Price = price;
+            this.Type = type;
+            this.Photo = photo;
+        }
     }
 }

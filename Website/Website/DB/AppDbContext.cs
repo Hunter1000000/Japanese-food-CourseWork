@@ -7,8 +7,6 @@ namespace Website.DB
     {
         public DbSet<UserModel> Users { get; set; }
         public DbSet<ProductModel> Products { get; set; }
-        //public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        //{
-        //}
+
     }
 }
