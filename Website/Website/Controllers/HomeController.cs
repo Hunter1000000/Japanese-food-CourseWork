@@ -22,18 +22,20 @@ namespace Website.Controllers
         {
             return View();
         }
-
         public IActionResult Sign_up()
         {
             return View();
         }
-
         public IActionResult Users()
         {
             return View();
         }
 
         public IActionResult Products()
+        {
+            return View();
+        }
+        public IActionResult RegistrationConfirmation()
         {
             return View();
         }

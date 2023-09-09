@@ -1,4 +1,28 @@
-﻿
+﻿@model List<RegisterModel>
 @{
 	ViewData["Title"] = "Users";
 }
+<h1>Список пользователей</h1>
+
+        @if (Model != null)
+        {
+    <table>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <!-- Другие поля пользователя -->
+            </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@user.Password</td>
+                <!-- Остальные поля пользователя -->
+            </tr>
+        }
+        </table>
+        }
+        else
+        {
+            <p>No products available.</p>
+        }
