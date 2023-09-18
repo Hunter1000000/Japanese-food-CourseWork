@@ -7,15 +7,24 @@ namespace Website.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        [Required]
-        [EmailAddress]
         public string Email { get; set; }
         public string Login { get; set; }
-        [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Compare("Password", ErrorMessage = "Passwords do not match.")]
-        [DataType(DataType.Password)]
-        public string ConfirmPassword { get; set; }
+        public string PhotoPath { get; set; }
+        public bool IsAdmin { get; set; }
+        public bool IsCompanyRepresentative { get; set; }
+        public UserModel() { }
 
+        public UserModel(string name, string surname, string email, string login, string password, string photopath, bool isAdmin, bool isCompanyRepresentative)
+        {
+            this.PhotoPath = photopath;
+            this.Name = name;
+            this.Surname = surname;
+            this.Email = email;
+            this.Login = login;
+            this.Password = password;
+            this.IsAdmin = isAdmin;
+            this.IsCompanyRepresentative = isCompanyRepresentative;
+        }
     }
 }

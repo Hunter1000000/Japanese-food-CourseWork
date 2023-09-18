@@ -6,15 +6,32 @@ namespace Website.Controllers
 {
     public class UsersController : Controller
     {
-        public AppDbContent appDb = new AppDbContent();
+        public AppDBContexts appDb = new AppDBContexts();
 
 
 
         [HttpGet]
         public IActionResult Users()
         {
-            var newUser = appDb.Users.ToList();
+            var newUser = appDb.usersDB.ToList();
             return View(newUser);
+        }
+
+        [HttpPost]
+        public IActionResult DeletePurchaseItem(int id)
+        {
+            // Удалите элемент из списка по его ID
+            var item = appDb.usersDB.Find(id);
+
+            if (item == null)
+            {
+                return NotFound(); // Элемент не найден
+            }
+
+            appDb.usersDB.Remove(item);
+            appDb.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

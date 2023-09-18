@@ -7,9 +7,8 @@
     "\\Website\\Website\\DB",
     "\\Website\\Website\\Models",
     "\\Website\\Website\\Views",
-    "\\Website\\Website\\Views\\Home",
     "\\Website\\Website\\Views\\Shared"
   ],
-  "SelectedNode": "\\Website\\Website\\DB\\AppDbContent.cs",
+  "SelectedNode": "\\Website\\Website\\Views\\Shared\\Products.cshtml",
   "PreviewInSolutionExplorer": false
 }

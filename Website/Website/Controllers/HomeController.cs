@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Website.Models;
 
@@ -7,10 +8,11 @@ namespace Website.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment)
         {
             _logger = logger;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         public IActionResult Index()
@@ -19,23 +21,6 @@ namespace Website.Controllers
         }
 
         public IActionResult Privacy()
-        {
-            return View();
-        }
-        public IActionResult Sign_up()
-        {
-            return View();
-        }
-        public IActionResult Users()
-        {
-            return View();
-        }
-
-        public IActionResult Products()
-        {
-            return View();
-        }
-        public IActionResult RegistrationConfirmation()
         {
             return View();
         }

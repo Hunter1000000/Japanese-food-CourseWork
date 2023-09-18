@@ -1,4 +1,4 @@
-﻿@model List<RegisterModel>
+﻿@model List<UserModel>
 @{
 	ViewData["Title"] = "Users";
 }
@@ -8,15 +8,24 @@
         {
     <table>
             <tr>
+                <th>ID</th>
                 <th>Email</th>
                 <th>Password</th>
+                <th>Delete</th>
                 <!-- Другие поля пользователя -->
             </tr>
         @foreach (var user in Model)
         {
             <tr>
+                <td>@user.Id</td>
                 <td>@user.Email</td>
                 <td>@user.Password</td>
+                <td>
+                    <form method="post" asp-action="DeletePurchaseItem">
+                        <input type="hidden" name="id" value="@user.Id" />
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </form>
+                </td>
                 <!-- Остальные поля пользователя -->
             </tr>
         }

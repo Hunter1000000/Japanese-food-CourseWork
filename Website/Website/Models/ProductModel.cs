@@ -11,17 +11,21 @@ namespace Website.Models
         public string Company { get; set; }
         public float Price { get; set; }
         public string Type { get; set; }
-        public string Photo { get; set; }
+        public string PhotoPath { get; set; }
 
-        public ProductModel(int id, string name, string description, string company, float price, string type, string photo)
+        public ProductModel()
         {
-            this.Id = id;
-            this.Name = name;
-            this.Description = description;
-            this.Company = company;
-            this.Price = price;
-            this.Type = type;
-            this.Photo = photo;
+
+        }
+
+        public ProductModel(string name, string description, string company, float price, string type, string photo)
+        {
+            Name = name;
+            Description = description;
+            Company = company;
+            Price = price;
+            Type = type;
+            PhotoPath = photo;
         }
     }
 }

@@ -6,28 +6,33 @@
 <h2>Список товаров</h2>
 
 <table>
-    <thead>
         <tr>
+            <th>Id</th>
             <th>Products</th>
+            <th>Image</th>
+            <th>Delete</th>
             <!-- Другие поля пользователя, если есть -->
         </tr>
-    </thead>
-    <tbody>
         @if (Model != null)
         {
-            <table>
                 @foreach (var product in Model)
                 {
                     <tr>
+                        <td>@product.Id</td>
                         <td>@product.Name</td>
+                        <td><img src="@Url.Content($"~/{@product.PhotoPath}")" style="width:50px;"/></td>
+                        <td>
+                        <form method="post" asp-action="DeletePurchaseItem">
+                            <input type="hidden" name="id" value="@product.Id" />
+                            <button type="submit" class="btn btn-danger">Удалить</button>
+                        </form>
+                        </td>
                         <!-- Другие поля пользователя, если есть -->
                     </tr>
                 }
-            </table>
         }
         else
         {
             <p>No products available.</p>
         }
-    </tbody>
 </table>

@@ -1,0 +1,40 @@
+﻿@model List<ProductModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Боковая панель поиска товара с Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Товары</h1>
+<div>
+    <div>
+        <input type="search" />
+        <div>
+            <input />
+            <label> > </label>
+            <input />
+        </div>
+        <div>
+                <div><input class="form-check-input" type="checkbox" id="option1"></div>
+                <input class="form-check-input" type="checkbox" id="option1">
+                <input class="form-check-input" type="checkbox" id="option1">
+                <input class="form-check-input" type="checkbox" id="option1">
+        </div>
+    </div>
+    <div>
+        @if (Model != null)
+        {
+
+            @foreach (var Model in Model){
+                <img src="">
+            }
+
+        }
+    </div>
+</div>
+</body>
+</html>

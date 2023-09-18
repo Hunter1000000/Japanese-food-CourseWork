@@ -8,31 +8,35 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Website
 build_property.RootNamespace = Website
-build_property.ProjectDir = C:\Users\Egor\source\repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\
+build_property.ProjectDir = C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Egor\source\repos\Hunter1000000\Japanese-food-CourseWork\Website\Website
+build_property.MSBuildProjectDirectory = C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Home/Sign_in.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaWduX2luLmNzaHRtbA==
+[C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Shared/AddProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkZFByb2R1Y3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Shared/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Shared/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Shared/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByaXZhY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Shared/ProductInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb2R1Y3RJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Egor/Source/Repos/Hunter1000000/Japanese-food-CourseWork/Website/Website/Views/Shared/Products.cshtml]

@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Images\Users\" />
+    <Folder Include="wwwroot\Images\Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\App\logo.png" />
+    <None Include="wwwroot\Images\Products\Hosomaki-Titelbild.jpg" />
   </ItemGroup>
 
   <ItemGroup>

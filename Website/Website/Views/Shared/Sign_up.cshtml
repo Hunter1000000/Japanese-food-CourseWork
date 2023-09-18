@@ -1,12 +1,26 @@
 ﻿@model RegisterModel
+
 @{
 	ViewData["Title"] = "Sign_up";
 }
 
 <form asp-action="Register" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
     <div>
         <label asp-for="Email"></label>
         <input asp-for="Email" />
+    </div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Surname"></label>
+        <input asp-for="Surname" />
+    </div>
+    <div>
+        <label asp-for="Login"></label>
+        <input asp-for="Login" />
     </div>
     <div>
         <label asp-for="Password"></label>
