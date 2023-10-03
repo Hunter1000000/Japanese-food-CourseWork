@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate____ : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -32,8 +32,7 @@
                         Login = c.String(),
                         Password = c.String(),
                         PhotoPath = c.String(),
-                        IsAdmin = c.Boolean(nullable: false),
-                        IsCompanyRepresentative = c.Boolean(nullable: false),
+                        Role = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             

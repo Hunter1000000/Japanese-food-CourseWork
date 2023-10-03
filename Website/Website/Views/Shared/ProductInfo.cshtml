@@ -1,5 +1,26 @@
-﻿@model List<ProductModel>
+﻿@model ProductModel
 @{
 }
-@foreach(var prod in Model){
+
+@if (Model != null)
+        {
+<div>
+        <h1>@Model.Name</h1>
+    <div><img src="@Url.Content($"~/{@Model.PhotoPath}")" style="width:250px;" /></div>
+        <div>@Model.Price</div>
+        <div>@Model.Description $</div>
+        <div>
+            <form method="post" asp-action="DeletePurchaseItem">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-danger">Купить</button>
+            </form>
+        </div>
+        <div>
+            <form method="post" asp-action="DeletePurchaseItem">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-danger">Добавить в корзину</button>
+            </form>
+        </div>
+    <!-- Другие поля пользователя, если есть -->
+</div>
 }

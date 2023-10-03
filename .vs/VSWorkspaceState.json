@@ -7,8 +7,10 @@
     "\\Website\\Website\\DB",
     "\\Website\\Website\\Models",
     "\\Website\\Website\\Views",
-    "\\Website\\Website\\Views\\Shared"
+    "\\Website\\Website\\Views\\Shared",
+    "\\Website\\Website\\wwwroot",
+    "\\Website\\Website\\wwwroot\\css"
   ],
-  "SelectedNode": "\\Website\\Website\\Views\\Shared\\Products.cshtml",
+  "SelectedNode": "\\Website\\Website.sln",
   "PreviewInSolutionExplorer": false
 }

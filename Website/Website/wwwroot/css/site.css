@@ -30,3 +30,14 @@ input[type="submit"] {
     padding: 10px;
     margin-top: 10px;
 }
+
+ul {
+    list-style: none; /* Убирает маркеры у списка */
+    padding: 0; /* Убирает внутренние отступы у списка */
+}
+
+li {
+    margin-bottom: 10px; /* Добавляет отступ между элементами списка */
+    font-size: 16px; /* Размер шрифта */
+    color: #333; /* Цвет текста */
+}

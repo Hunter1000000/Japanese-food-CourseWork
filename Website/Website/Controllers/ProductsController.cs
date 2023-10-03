@@ -3,18 +3,23 @@ using Microsoft.AspNetCore.Mvc;
 using Website.DB;
 using System.Web;
 using Website.Models;
+using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Website.Controllers
 {
     public class ProductsController : Controller
     {
-        public AppDBContexts appDb = new AppDBContexts();
+        public AppDBContexts_ appDb = new AppDBContexts_();
+        public int Product_id = 0;
         [HttpGet]
         public IActionResult Products()
         {
             var products = appDb.productsDB.ToList();
             return View(products);
         }
+
+
 
         public ActionResult AddProduct()
         {
@@ -32,15 +37,19 @@ namespace Website.Controllers
 
                 if (file != null && file.Length > 0)
                 {
+                    appDb.productsDB.Add(new ProductModel(product.Name, product.Description, product.Company, product.Price, product.Type, ""));
+                    appDb.SaveChanges();
+                    var lastelement = appDb.productsDB.OrderByDescending(x => x.Id).FirstOrDefault();
+
                     var fileName = Path.GetFileName(file.FileName);
                     string[] substrings = fileName.Split('.');
-                    if (substrings.Length > 0 && appDb.productsDB.Any())
+                    if (substrings.Length > 0)
                     {
-                        fileName = (appDb.productsDB.OrderByDescending(p => p.Id).FirstOrDefault().Id + 1).ToString() + "." + substrings[substrings.Length - 1];
+                        fileName = (lastelement.Id).ToString() + "." + substrings[substrings.Length - 1];
                     }
-                    else if(substrings.Length > 0)
+                    else
                     {
-                        fileName = "1." + substrings[substrings.Length - 1];
+                        fileName = (lastelement.Id).ToString();
                     }
 
 
@@ -55,7 +64,7 @@ namespace Website.Controllers
                     }
 
                     // Сохраните путь к изображению в модели продукта.
-                    appDb.productsDB.Add(new ProductModel(product.Name, product.Description, product.Company, product.Price, product.Type, "Images/Products/" + fileName));
+                    lastelement.PhotoPath = "Images/Products/" + fileName;
                     appDb.SaveChanges();
 
                     return RedirectToAction("Index", "Home");
@@ -65,20 +74,29 @@ namespace Website.Controllers
             return View(product);
         }
 
+        [HttpGet]
+        public ActionResult ProductInfo()
+        {
+            var products = appDb.productsDB.ToList();
+            ProductModel foundItem;
+                foundItem = products.FirstOrDefault(item => item.Id == Product_id);
+            return View(foundItem);
+        }
+
         [HttpPost]
         public ActionResult DeletePurchaseItem(int id)
         {
-                var item = appDb.productsDB.Find(id);
+            var item = appDb.productsDB.Find(id);
+            //Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images/Products/", fileName)
+            if (System.IO.File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", item.PhotoPath)))
+            {
+                System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", item.PhotoPath));
+            }
 
-                if (item == null)
-                {
-                    return NotFound(); // Элемент не найден
-                }
+            appDb.productsDB.Remove(item);
+            appDb.SaveChanges();
 
-                appDb.productsDB.Remove(item);
-                appDb.SaveChanges();
-
-                return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

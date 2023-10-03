@@ -109,5 +109,6 @@ C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Websit
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.Migrations.InitialCreate____.resources
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.Migrations.InitialCreate.resources
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.csproj.GenerateResource.cache
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.Migrations.InitialCreate123.resources
