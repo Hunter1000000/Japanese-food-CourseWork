@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HdOo2RWOFAtXlgm9xnZCXu4af5O1SvpoZmheVuGIazE=",
+  "Hash": "N+Cp3NiaSsB84z99XVKcAOi1xkRdG6iHYeJOWfkM1gk=",
   "Source": "Website",
   "BasePath": "_content/Website",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\App\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Egor\\Source\\Repos\\Hunter1000000\\Japanese-food-CourseWork\\Website\\Website\\wwwroot\\Images\\Products\\1.jpg",
+      "SourceId": "Website",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Egor\\Source\\Repos\\Hunter1000000\\Japanese-food-CourseWork\\Website\\Website\\wwwroot\\",
+      "BasePath": "_content/Website",
+      "RelativePath": "Images/Products/1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Products\\1.jpg"
     },
     {
       "Identity": "C:\\Users\\Egor\\Source\\Repos\\Hunter1000000\\Japanese-food-CourseWork\\Website\\Website\\wwwroot\\Images\\Products\\10.jpg",

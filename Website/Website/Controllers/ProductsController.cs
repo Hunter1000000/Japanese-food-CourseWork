@@ -86,7 +86,23 @@ namespace Website.Controllers
         [HttpPost]
         public ActionResult DeletePurchaseItem(int id)
         {
-            var item = appDb.productsDB.Find(id);
+            var item = appDb.productsDB.FirstOrDefault(item => item.Id == id);
+            //Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images/Products/", fileName)
+            if (System.IO.File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", item.PhotoPath)))
+            {
+                System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", item.PhotoPath));
+            }
+
+            appDb.productsDB.Remove(item);
+            appDb.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult ChangeProduct(int id)
+        {
+            var item = appDb.productsDB.FirstOrDefault(item => item.Id == id);
             //Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images/Products/", fileName)
             if (System.IO.File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", item.PhotoPath)))
             {

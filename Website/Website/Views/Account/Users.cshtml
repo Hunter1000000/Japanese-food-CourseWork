@@ -1,0 +1,80 @@
+﻿@model List<UserModel>
+@{
+	ViewData["Title"] = "Users";
+    List<SelectListItem> items = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "1", Text = "User" },
+        new SelectListItem { Value = "2", Text = "Salesman" },
+        new SelectListItem { Value = "3", Text = "Admin" }
+    };
+}
+<h1>Список пользователей</h1>
+        @if (Model != null)
+        {
+    <table>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Role</th>
+                <th>Image</th>
+                <th>Delete</th>
+                <!-- Другие поля пользователя -->
+            </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Email</td>
+                <td>@user.Password</td>
+                <td>
+                    <form method="post" asp-action="RoleType">
+                        <select id="myDropdown" name="selectDown" class="form-control">
+                        <option value="">Выберите вариант</option>
+                        @foreach (var item in items)
+                        {
+                            if(item.Text == user.Role){
+                                    <option value="@user.Id @item.Text" selected>@item.Text </option>
+                            }
+                            else{
+                                    <option value="@user.Id @item.Text">@item.Text </option>
+                                }
+
+                        }
+                    </select>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
+                    </form>
+                </td>
+                <td><img src="@Url.Content($"~/{@user.PhotoPath}")" style="width:50px;" /></td>
+                <td>
+                    <form method="post" asp-action="DeletePurchaseItem">
+                        <input type="hidden" name="id" value="@user.Id" />
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </form>
+                </td>
+                <!-- Остальные поля пользователя -->
+            </tr>
+        }
+        </table>
+        }
+        else
+        {
+            <p>No products available.</p>
+        }
+<script>
+    $(function () {
+        $('#cellSelector').change(function () {
+            var selectedCell = $(this).val();
+            var selectName = $(this).attr('name');
+
+            $.ajax({
+                url: "@Url.Action("GetTypes", "Car")",
+                type: 'POST',
+                data: { selectedCell: selectedCell, selectName: selectName },
+                success: function (data) {
+                    // Обновите таблицу или выполните другие действия после успешной отправки данных на сервер
+                }
+            });
+        });
+    });
+</script>

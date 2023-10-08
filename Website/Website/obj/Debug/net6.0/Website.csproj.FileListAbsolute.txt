@@ -42,7 +42,6 @@ C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Websit
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.RazorAssemblyInfo.cs
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\scopedcss\bundle\Website.styles.css
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\scopedcss\projectbundle\Website.bundle.scp.css
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.dll
@@ -112,3 +111,4 @@ C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Websit
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.Migrations.InitialCreate.resources
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.csproj.GenerateResource.cache
 C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\Website.Migrations.InitialCreate123.resources
+C:\Users\Egor\Source\Repos\Hunter1000000\Japanese-food-CourseWork\Website\Website\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

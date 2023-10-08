@@ -4,9 +4,9 @@
     "\\Website",
     "\\Website\\Website",
     "\\Website\\Website\\Controllers",
-    "\\Website\\Website\\DB",
     "\\Website\\Website\\Models",
     "\\Website\\Website\\Views",
+    "\\Website\\Website\\Views\\Account",
     "\\Website\\Website\\Views\\Shared",
     "\\Website\\Website\\wwwroot",
     "\\Website\\Website\\wwwroot\\css"
