@@ -1,0 +1,30 @@
+﻿@model UserModel
+@{
+}
+@if (Model != null)
+{
+    <form asp-action="ChangeProfile" method="get">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Name">Имя</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Surname">Фамилия</label>
+            <input asp-for="Surname" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Photo")
+            <input type="file" name="file" id="photoFile" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Изменить</button>
+    </form>
+}
+else
+{
+    <p>No products available.</p>
+}

@@ -1,26 +1,26 @@
-﻿@model CombinedViewBuyModel
+﻿@model BuyProductModelVisa
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
-@using (Html.BeginForm("Sign_up", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("BuyProduct", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
-        @Html.LabelFor(model => model.BuyProductModelVisa.CardNumber)
-        @Html.TextBoxFor(model => model.BuyProductModelVisa.CardNumber, new { @class = "form-control" })
+        @Html.LabelFor(model => model.CardNumber)
+        @Html.TextBoxFor(model => model.CardNumber, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BuyProductModelVisa.CardExpirationDate)
-        @Html.TextBoxFor(model => model.BuyProductModelVisa.CardExpirationDate, new { @class = "form-control" })
+        @Html.LabelFor(model => model.CardExpirationDate)
+        @Html.TextBoxFor(model => model.CardExpirationDate, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BuyProductModelVisa.SVV2)
-        @Html.TextBoxFor(model => model.BuyProductModelVisa.SVV2, new { @class = "form-control" })
+        @Html.LabelFor(model => model.SVV2)
+        @Html.TextBoxFor(model => model.SVV2, new { @class = "form-control" })
     </div>
 
     <div class="form-group">

@@ -1,10 +1,8 @@
 ﻿@model List<ProductModel>
 @{
-	ViewData["Title"] = "Products";
 }
-
 <div class="container">
-    <h2>@ViewData["Title"]</h2>
+    <h1>@ViewData["Title"]</h1>
     @if (Model != null && Model.Count > 0)
     {
         <table class="table table-bordered">
@@ -13,7 +11,6 @@
                     <th>Id</th>
                     <th>Название</th>
                     <th>Картинка</th>
-                    <th>Изменить продукт</th>
                     <th>Удалить</th>
                 </tr>
             </thead>
@@ -27,15 +24,9 @@
                             <img src="@Url.Content($"~/{product.PhotoPath}")" style="width:50px;" class="img-thumbnail" />
                         </td>
                         <td>
-                            <form method="post" asp-action="ChangeProductViews">
-                                <input type="hidden" name="id" value="@product.Id" />
-                                <button type="submit" class="btn btn-primary">Изменить</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="post" asp-action="DeletePurchaseItem">
-                                <input type="hidden" name="id" value="@product.Id" />
-                                <button type="submit" class="btn btn-danger">Удалить</button>
+                            <form method="post" asp-action="RemoveFromBasket">
+                                <input type="hidden" name="productId" value="@product.Id" />
+                                <button type="submit" class="btn btn-danger">Убрать</button>
                             </form>
                         </td>
                     </tr>
@@ -45,6 +36,6 @@
     }
     else
     {
-        <p>Нет доступных товаров.</p>
+        <p>Нет товаров в корзине.</p>
     }
 </div>

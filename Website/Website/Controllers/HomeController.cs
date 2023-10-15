@@ -10,7 +10,7 @@ namespace Website.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IWebHostEnvironment _hostingEnvironment;
-        public AppDBContexts_ appDb = new AppDBContexts_();
+        public AppDBContexts_____ appDb = new AppDBContexts_____();
         public int Product_id;
         [HttpPost]
         public ActionResult GetProductId(int id)
@@ -30,10 +30,41 @@ namespace Website.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Index()
+        [HttpPost]
+        public ActionResult Search(string searchInput)
         {
-            var products = appDb.productsDB.ToList();
+            List<ProductModel> products = new List<ProductModel>();
+            if (searchInput == null)
+            {
+                var products_ = appDb.productsDB.ToList();
+                return View(products_);
+            }
+            foreach (var item in appDb.productsDB.ToList())
+            {
+                if (item.Name == searchInput)
+                {
+                    products.Add(item);
+                }
+            }
+            return View(products);
+        }
+
+        [HttpGet]
+        public IActionResult Index(string id)
+        {
+            List<ProductModel> products = new List<ProductModel>();
+            if(id == null)
+            {
+                var products_ = appDb.productsDB.ToList();
+                return View(products_);
+            }
+            foreach (var item in appDb.productsDB.ToList())
+            {
+                if(item.Type == id)
+                {
+                    products.Add(item);
+                }
+            }
             return View(products);
         }
 
@@ -41,7 +72,6 @@ namespace Website.Controllers
         public ActionResult ProductInfo(int id)
         {
             var products = appDb.productsDB.ToList();
-            System.Console.WriteLine($"{id}");
             ProductModel foundItem = products.FirstOrDefault(item => item.Id == id);
             return View(foundItem);
         }
@@ -56,5 +86,7 @@ namespace Website.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        
     }
 }

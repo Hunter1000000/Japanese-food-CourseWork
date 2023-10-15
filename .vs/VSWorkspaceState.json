@@ -3,14 +3,14 @@
     "",
     "\\Website",
     "\\Website\\Website",
-    "\\Website\\Website\\Controllers",
-    "\\Website\\Website\\Models",
     "\\Website\\Website\\Views",
     "\\Website\\Website\\Views\\Account",
+    "\\Website\\Website\\Views\\Home",
+    "\\Website\\Website\\Views\\Products",
     "\\Website\\Website\\Views\\Shared",
     "\\Website\\Website\\wwwroot",
     "\\Website\\Website\\wwwroot\\css"
   ],
-  "SelectedNode": "\\Website\\Website.sln",
+  "SelectedNode": "\\Website\\Website\\Views\\Products\\Products.cshtml",
   "PreviewInSolutionExplorer": false
 }

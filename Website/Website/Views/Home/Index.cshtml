@@ -1,54 +1,107 @@
 ﻿@model List<ProductModel>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Список товаров";
 }
+
+<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Боковая панель поиска товара с Bootstrap</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <h1>Товары</h1>
-
-    <div class="d-flex flex-row">
-        <div class="mx-5">
-        <input type="search" />
-        <div>
-            <input />
-        </div>
-        <div>
-                <div><input class="form-check-input" type="checkbox" id="option1"></div>
-                <input class="form-check-input" type="checkbox" id="option1">
-                <input class="form-check-input" type="checkbox" id="option1">
-                <input class="form-check-input" type="checkbox" id="option1">
-        </div>
-    </div>
-        <div>
-        @if (Model != null)
-        {
-                <ul class ="d-flex flex-row">
-                @foreach (var product in Model)
-                {
-                        <li class="mx-5">
-                        <div><img src="@Url.Content($"~/{@product.PhotoPath}")" style="width:100px;" /></div>
-                            <div>
-                                <a class="nav-link text-dark" href="@Url.Action("ProductInfo", "Home", new { id = @product.Id })">@product.Name</a>
-                                <a class="nav-link text-dark" href="@Url.Action("ProductInfo", "Home", new { id = @product.Id })">@product.Price$</a>
-                            </div>
-                            <div>
-                                <form method="post" asp-action="AddToBasket">
-                                <input type="hidden" name="id" value="@product.Id" />
-                                <button type="submit" class="btn btn-danger">Купить</button>
-                            </form>
-                        </div>
-                        <!-- Другие поля пользователя, если есть -->
-                    </li>
-                }
-            </ul>
+    <style>
+        .truncate-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 250px; /* Укажите желаемую максимальную ширину */
         }
+
+        body {
+            background-color: #f8f9fa; /* Цвет фона */
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .row {
+            margin-top: 20px;
+        }
+
+        .card {
+            border: none;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .card-text {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Список товаров</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post" asp-action="Search">
+                    <input type="search" id="searchInput" name="searchInput" class="form-control" placeholder="Поиск" />
+                    <button type="submit" class="btn btn-success">Поиск</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <ul>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Сладости" })">Сладости</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Лапша" })">Лапша</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Соусы и пасты" })">Соусы и пасты</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Напитки" })">Напитки</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Растительное молоко" })">Растительное молоко</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Консервация" })">Консервация</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Замороженные продукты" })">Замороженные продукты</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Водоросли" })">Водоросли</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Бакалея" })">Бакалея</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Чай" })">Чай</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Кофе" })">Кофе</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Снэки" })">Снэки</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Всё для суши" })">Всё для суши</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Специи" })">Специи</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Супы" })">Супы</a></li>
+                    <li><a class="truncate-text nav-link text-dark" href="@Url.Action("Index", "Home", new { id = "Веганские продукты" })">Веганские продукты</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div class="row mt-3">
+                    @if (Model != null)
+                    {
+                        @foreach (var product in Model)
+                        {
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="@Url.Content($"~/{product.PhotoPath}")" class="card-img-top" style="width:150px; height: 150px" alt="@product.Name">
+                                    <div class="card-body">
+                                        <h5><a class="truncate-text nav-link text-dark" href="@Url.Action("ProductInfo", "Products", new { id = @product.Id })">@product.Name</a></h5>
+                                        <p class="card-text">@product.Price$</p>
+                                        <form method="post" asp-controller="Products" asp-action="BuyProduct">
+                                            <input type="hidden" name="id" value="@product.Id" />
+                                            <button type="submit" class="btn btn-primary">Купить</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </body>
+
 </html>

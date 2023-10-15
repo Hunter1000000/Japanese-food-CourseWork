@@ -12,6 +12,7 @@ namespace Website.Models
         public string Password { get; set; }
         public string PhotoPath { get; set; }
         public string Role { get; set; }
+        public string Company { get; set; }
         public UserModel() { }
 
         public UserModel(string name, string surname, string email, string login, string password, string photopath, string Role)
@@ -23,6 +24,12 @@ namespace Website.Models
             this.Login = login;
             this.Password = password;
             this.Role = Role;
+        }
+        public UserModel(string name, string surname, string photopath)
+        {
+            this.PhotoPath = photopath;
+            this.Name = name;
+            this.Surname = surname;
         }
     }
 }

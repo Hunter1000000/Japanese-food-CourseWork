@@ -1,16 +1,15 @@
-﻿using Microsoft.AspNetCore.Hosting.Server;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Website.DB;
-using System.Web;
 using Website.Models;
-using Microsoft.EntityFrameworkCore.Internal;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Website.Controllers
+namespace Website.Controll1ers
 {
     public class ProductsController : Controller
     {
-        public AppDBContexts_ appDb = new AppDBContexts_();
+
+        public AppDBContexts_____ appDb = new AppDBContexts_____();
         public int Product_id = 0;
         [HttpGet]
         public IActionResult Products()
@@ -75,11 +74,11 @@ namespace Website.Controllers
         }
 
         [HttpGet]
-        public ActionResult ProductInfo()
+        public ActionResult ProductInfo(int id)
         {
             var products = appDb.productsDB.ToList();
             ProductModel foundItem;
-                foundItem = products.FirstOrDefault(item => item.Id == Product_id);
+                foundItem = products.FirstOrDefault(item => item.Id == id);
             return View(foundItem);
         }
 
@@ -100,19 +99,120 @@ namespace Website.Controllers
         }
 
         [HttpPost]
+        public ActionResult ChangeProductViews(int id)
+        {
+            //var item = appDb.productsDB.FirstOrDefault(item => item.Id == id);
+
+            return RedirectToAction("ChangeProduct", "Products", new { id = id });
+        }
+
+        [HttpGet]
+        public ActionResult Basket()
+        {
+            List<ProductModel> basket = HttpContext.Session.Get<List<ProductModel>>("Basket");
+
+            // Requires SessionExtensions from sample.
+            //if (HttpContext.Session.Get<List<ProductModel>>("Basket") == default)
+            //{
+               // HttpContext.Session.Set<List<ProductModel>>("Basket", basket);
+            //}
+            // Отобразите корзину в представлении
+            return View(basket);
+        }
+
+        [HttpPost]
+        public ActionResult AddToBasket(int id)
+        {
+            List<ProductModel> basket;
+
+            if (HttpContext.Session.Get<List<ProductModel>>("Basket") == null)
+            {
+                basket = new List<ProductModel>();
+                var product = appDb.productsDB.FirstOrDefault(item => item.Id == id);
+                basket.Add(product);
+                HttpContext.Session.Set<List<ProductModel>>("Basket", basket);
+            }
+            else
+            {
+                basket = HttpContext.Session.Get<List<ProductModel>>("Basket");
+                var product = appDb.productsDB.FirstOrDefault(item => item.Id == id);
+                basket.Add(product);
+                HttpContext.Session.Set<List<ProductModel>>("Basket", basket);
+            }
+
+            return RedirectToAction("ProductInfo", "Products", new { id = id });
+        }
+
+        [HttpPost]
+        public ActionResult RemoveFromBasket(int productId)
+        {
+            List<ProductModel> basket = HttpContext.Session.Get<List<ProductModel>>("Basket");
+
+            if (basket != null)
+            {
+                // Найдите и удалите товар из корзины
+                basket.RemoveAll(item => item.Id == productId);
+
+                // Сохраните изменения в сессии
+                HttpContext.Session.Set<List<ProductModel>>("Basket", basket);
+            }
+
+            return RedirectToAction("Basket", "Products");
+        }
+
+        [HttpGet]
         public ActionResult ChangeProduct(int id)
         {
             var item = appDb.productsDB.FirstOrDefault(item => item.Id == id);
-            //Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images/Products/", fileName)
-            if (System.IO.File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", item.PhotoPath)))
+
+            return View(item);
+        }
+
+        [HttpGet]
+        public ActionResult Buy(int id)
+        {
+            var item = appDb.productsDB.FirstOrDefault(item => item.Id == id);
+
+            return View(item);
+        }
+
+        [HttpGet]
+        public IActionResult CompanyProducts()
+        {
+            var products = appDb.productsDB.ToList();
+            return View(products);
+        }
+
+        [HttpPost]
+        public IActionResult BuyProduct(BuyProductModelVisa buyProductModelVisa)
+        {
+            if (ModelState.IsValid)
             {
-                System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", item.PhotoPath));
+                return RedirectToAction("Success", "Products");
             }
+            return View();
+        }
 
-            appDb.productsDB.Remove(item);
-            appDb.SaveChanges();
+        public IActionResult BuyProduct()
+        {
+            return View();
+        }
+        public IActionResult AddCompanyProduct()
+        {
+            return View();
+        }
 
-            return RedirectToAction("Index", "Home");
+        public IActionResult Success()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddCompanyProduct(ProductModel productModel)
+        {
+            var item = appDb.usersDB.FirstOrDefault(item => item.Login == User.Identity.Name);
+            productModel.Company = item.Company;
+            return View();
         }
     }
 }

@@ -1,0 +1,59 @@
+﻿@model ProductModel
+@{
+
+    List<SelectListItem> items = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Сладости" },
+        new SelectListItem { Text = "Лапша" },
+        new SelectListItem { Text = "Соусы и пасты" },
+        new SelectListItem { Text = "Напитки" },
+        new SelectListItem { Text = "Растительное молоко" },
+        new SelectListItem { Text = "Консервация" },
+        new SelectListItem { Text = "Замороженные продукты" },
+        new SelectListItem { Text = "Водоросли" },
+        new SelectListItem { Text = "Бакалея" },
+        new SelectListItem { Text = "Чай" },
+        new SelectListItem { Text = "Кофе" },
+        new SelectListItem { Text = "Снэки" },
+        new SelectListItem { Text = "Всё для суши" },
+        new SelectListItem { Text = "Специи" },
+        new SelectListItem { Text = "Супы" },
+        new SelectListItem { Text = "Веганские продукты" }
+    };
+}
+<form asp-action="ChangeProductAdmin" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name">Название</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Описание</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Цена</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="myDropdown">Выберите вариант</label>
+        <select id="myDropdown" name="selectDown" class="form-control">
+            <option value="">Выберите вариант</option>
+            @foreach (var item in items)
+            {
+                <option value="@item.Text">@item.Text</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PhotoPath">Изображение</label>
+        <input asp-for="PhotoPath" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Изменить</button>
+</form>

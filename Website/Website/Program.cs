@@ -8,6 +8,21 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddSession(options =>
+        {
+            // Установите тайм-аут сеанса (по умолчанию 20 минут)
+            options.IdleTimeout = TimeSpan.FromMinutes(30); // Пример: 30 минут
+
+            // Установите имя куки-сеанса (по умолчанию ".AspNetCore.Session")
+            options.Cookie.Name = "MySessionCookie";
+
+            // Настройте параметры куки
+            options.Cookie.HttpOnly = true; // Делает куки недоступными для скриптов на клиентской стороне
+            options.Cookie.IsEssential = true; // Убедитесь, что куки сеанса всегда отправляются
+
+            // Другие настройки, включая конфигурацию Redis, если необходимо
+        });
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -27,7 +42,7 @@ internal class Program
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-
+        app.UseSession();
         app.UseRouting();
 
         app.UseAuthentication();

@@ -7,21 +7,21 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Security.Claims;
 using Website.DB;
-using Website.Interfaces;
 using Website.Models;
 
 namespace Website.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IUserService _carService;
-        public AppDBContexts_ appDb = new AppDBContexts_();
 
-        public ActionResult Sign_up()
+        public AppDBContexts_____ appDb = new AppDBContexts_____();
+
+        public IActionResult Login()
         {
             return View();
         }
-        public ActionResult Login()
+
+        public IActionResult Sign_up()
         {
             return View();
         }
@@ -85,6 +85,7 @@ namespace Website.Controllers
             }
             return View(loginModel);
         }
+
         public ActionResult RegistrationConfirmation()
         {
             return View();
@@ -138,9 +139,44 @@ namespace Website.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult Profile()
+        [HttpGet]
+        public IActionResult Profile()
         {
-            return View();
+            var login = User.Identity.Name;
+            var response = appDb.usersDB.FirstOrDefault(item => item.Login == login);
+            return View(response);
+        }
+
+        [HttpGet]
+        public ActionResult ChangeProfile()
+        {
+            var login = User.Identity.Name;
+            var response = appDb.usersDB.FirstOrDefault(item => item.Login == login);
+            return View(response);
+        }
+
+        
+
+        [HttpPost]
+        public IActionResult ChangeUserProfile()
+        {
+            return RedirectToAction("ChangeProfile", "Account");
+        }
+
+
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult CompanyName(int userId, string inputText)
+        {
+            var response = appDb.usersDB.FirstOrDefault(item => item.Id == userId);
+            response.Company = inputText;
+            return RedirectToAction("Index", "Home");
         }
     }
 }
