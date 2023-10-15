@@ -4,7 +4,7 @@
 }
 
 <div class="container">
-    <h2>@ViewData["Title"]</h2>
+    <h2>Список продуктов</h2>
     @if (Model != null && Model.Count > 0)
     {
         <table class="table table-bordered">
@@ -12,6 +12,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Название</th>
+                    <th>Компания</th>
                     <th>Картинка</th>
                     <th>Изменить продукт</th>
                     <th>Удалить</th>
@@ -23,6 +24,7 @@
                     <tr>
                         <td>@product.Id</td>
                         <td>@product.Name</td>
+                        <td>@product.Company</td>
                         <td>
                             <img src="@Url.Content($"~/{product.PhotoPath}")" style="width:50px;" class="img-thumbnail" />
                         </td>

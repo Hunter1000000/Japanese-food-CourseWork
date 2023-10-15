@@ -20,7 +20,7 @@
         new SelectListItem { Text = "Веганские продукты" }
     };
 }
-@using (Html.BeginForm("AddProduct", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddCompanyProduct", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div asp-validation-summary="All" class="text-danger"></div>

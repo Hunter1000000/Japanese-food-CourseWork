@@ -33,9 +33,14 @@
                 }
             </tbody>
         </table>
+        <form method="post" asp-controller="Products" asp-action="BuyProduct">
+        <div class="fixed-bottom fixed-right p-3">
+            <button type="submit" class="btn btn-primary">Купить всё</button>
+        </div>
+        </form>
     }
     else
     {
         <p>Нет товаров в корзине.</p>
     }
-</div>
+    </div>

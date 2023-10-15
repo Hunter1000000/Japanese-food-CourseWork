@@ -208,11 +208,53 @@ namespace Website.Controll1ers
         }
 
         [HttpPost]
-        public IActionResult AddCompanyProduct(ProductModel productModel)
+        public IActionResult AddCompanyProduct(CompanyProduct productModel, IFormFile file)
         {
             var item = appDb.usersDB.FirstOrDefault(item => item.Login == User.Identity.Name);
-            productModel.Company = item.Company;
+
+            if (ModelState.IsValid)
+            {
+                // Сохраните информацию о продукте, кроме фото, в базе данных.
+                // Здесь вы можете использовать Entity Framework для этой цели.
+
+                if (file != null && file.Length > 0)
+                {
+                    appDb.productsDB.Add(new ProductModel(productModel.Name, productModel.Description, item.Company, productModel.Price, productModel.Type, ""));
+                    appDb.SaveChanges();
+                    var lastelement = appDb.productsDB.OrderByDescending(x => x.Id).FirstOrDefault();
+
+                    var fileName = Path.GetFileName(file.FileName);
+                    string[] substrings = fileName.Split('.');
+                    if (substrings.Length > 0)
+                    {
+                        fileName = (lastelement.Id).ToString() + "." + substrings[substrings.Length - 1];
+                    }
+                    else
+                    {
+                        fileName = (lastelement.Id).ToString();
+                    }
+
+
+                    if (!Directory.Exists("Images/Products"))
+                    {
+                        Directory.CreateDirectory("Images/Products");
+                    }
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images/Products/", fileName); // Путь к папке Images в вашем проекте ASP.NET Core
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+
+                    // Сохраните путь к изображению в модели продукта.
+                    lastelement.PhotoPath = "Images/Products/" + fileName;
+                    appDb.SaveChanges();
+
+                    return RedirectToAction("Index", "Home");
+                } // Перенаправьте пользователя на страницу со списком продуктов или другую подходящую страницу.
+            }
+
             return View();
         }
+
     }
 }
